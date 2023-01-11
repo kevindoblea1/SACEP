@@ -1,0 +1,1 @@
+codigo_usuario,codigo_clase

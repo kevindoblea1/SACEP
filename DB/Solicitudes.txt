@@ -1,0 +1,1 @@
+codigo_solicitud,codigo_usuario,fecha,cantidad_color,cantidad_ByN,tipo,codigo_clase,codigo_maestro,estado,observaciones

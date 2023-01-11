@@ -1,0 +1,2 @@
+codigo_usuario,password,identidad,nombre_usuario,genero,correo_usuario,telefono,rol
+150593    ,150593    ,0405-1993-00196,Kevin Ariel Alvarenga                        ,Masculino      ,kevin.alvarenga93@gmail.com   ,9469-7805,Administrador                      

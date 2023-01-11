@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SACEPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Carreras">
+          <Key>
+            <PropertyRef Name="codigo_carrera" />
+          </Key>
+          <Property Name="codigo_carrera" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="nombre_carrera" Type="nchar" MaxLength="10" />
+          <Property Name="cantidad_clases" Type="int" />
+          <Property Name="cantidad_maestros" Type="int" />
+        </EntityType>
+        <EntityType Name="Clases">
+          <Key>
+            <PropertyRef Name="codigo_clase" />
+          </Key>
+          <Property Name="codigo_clase" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="descripcion_clase" Type="nchar" MaxLength="50" />
+          <Property Name="tipo" Type="nchar" MaxLength="11" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clases_carreras">
+          <Key>
+            <PropertyRef Name="codigo_clase" />
+          </Key>
+          <Property Name="codigo_clase" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="codigo_carrera" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clases_maestros">
+          <Key>
+            <PropertyRef Name="codigo_usuario" />
+          </Key>
+          <Property Name="codigo_usuario" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="codigo_clase" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Solicitudes">
+          <Key>
+            <PropertyRef Name="codigo_solicitud" />
+          </Key>
+          <Property Name="codigo_solicitud" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="codigo_usuario" Type="nchar" MaxLength="10" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="cantidad_color" Type="int" />
+          <Property Name="cantidad_ByN" Type="int" />
+          <Property Name="tipo" Type="nchar" MaxLength="11" />
+          <Property Name="codigo_clase" Type="nchar" MaxLength="10" />
+          <Property Name="codigo_maestro" Type="nchar" MaxLength="10" />
+          <Property Name="estado" Type="nchar" MaxLength="10" />
+          <Property Name="observaciones" Type="nchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="codigo_usuario" />
+          </Key>
+          <Property Name="codigo_usuario" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="password" Type="nchar" MaxLength="10" />
+          <Property Name="identidad" Type="nchar" MaxLength="15" />
+          <Property Name="nombre_usuario" Type="nchar" MaxLength="45" />
+          <Property Name="genero" Type="nchar" MaxLength="15" />
+          <Property Name="correo_usuario" Type="nchar" MaxLength="30" />
+          <Property Name="telefono" Type="nchar" MaxLength="9" />
+          <Property Name="rol" Type="nchar" MaxLength="35" />
+        </EntityType>
+        <EntityContainer Name="SACEPModelStoreContainer">
+          <EntitySet Name="Carreras" EntityType="Self.Carreras" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clases" EntityType="Self.Clases" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clases_carreras" EntityType="Self.Clases_carreras" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clases_maestros" EntityType="Self.Clases_maestros" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Solicitudes" EntityType="Self.Solicitudes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SACEPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Carrera">
+          <Key>
+            <PropertyRef Name="codigo_carrera" />
+          </Key>
+          <Property Name="codigo_carrera" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="nombre_carrera" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="cantidad_clases" Type="Int32" />
+          <Property Name="cantidad_maestros" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Clas">
+          <Key>
+            <PropertyRef Name="codigo_clase" />
+          </Key>
+          <Property Name="codigo_clase" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="descripcion_clase" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="tipo" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clases_carreras">
+          <Key>
+            <PropertyRef Name="codigo_clase" />
+          </Key>
+          <Property Name="codigo_clase" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="codigo_carrera" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clases_maestros">
+          <Key>
+            <PropertyRef Name="codigo_usuario" />
+          </Key>
+          <Property Name="codigo_usuario" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="codigo_clase" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Solicitude">
+          <Key>
+            <PropertyRef Name="codigo_solicitud" />
+          </Key>
+          <Property Name="codigo_solicitud" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="codigo_usuario" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="cantidad_color" Type="Int32" />
+          <Property Name="cantidad_ByN" Type="Int32" />
+          <Property Name="tipo" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+          <Property Name="codigo_clase" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="codigo_maestro" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="estado" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="observaciones" Type="String" MaxLength="45" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="codigo_usuario" />
+          </Key>
+          <Property Name="codigo_usuario" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="identidad" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="nombre_usuario" Type="String" MaxLength="45" FixedLength="true" Unicode="true" />
+          <Property Name="genero" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="correo_usuario" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="telefono" Type="String" MaxLength="9" FixedLength="true" Unicode="true" />
+          <Property Name="rol" Type="String" MaxLength="35" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="SACEPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Carreras" EntityType="Self.Carrera" />
+          <EntitySet Name="Clases" EntityType="Self.Clas" />
+          <EntitySet Name="Clases_carreras" EntityType="Self.Clases_carreras" />
+          <EntitySet Name="Clases_maestros" EntityType="Self.Clases_maestros" />
+          <EntitySet Name="Solicitudes" EntityType="Self.Solicitude" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SACEPModelStoreContainer" CdmEntityContainer="SACEPEntities">
+          <EntitySetMapping Name="Carreras">
+            <EntityTypeMapping TypeName="SACEPModel.Carrera">
+              <MappingFragment StoreEntitySet="Carreras">
+                <ScalarProperty Name="codigo_carrera" ColumnName="codigo_carrera" />
+                <ScalarProperty Name="nombre_carrera" ColumnName="nombre_carrera" />
+                <ScalarProperty Name="cantidad_clases" ColumnName="cantidad_clases" />
+                <ScalarProperty Name="cantidad_maestros" ColumnName="cantidad_maestros" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clases">
+            <EntityTypeMapping TypeName="SACEPModel.Clas">
+              <MappingFragment StoreEntitySet="Clases">
+                <ScalarProperty Name="codigo_clase" ColumnName="codigo_clase" />
+                <ScalarProperty Name="descripcion_clase" ColumnName="descripcion_clase" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clases_carreras">
+            <EntityTypeMapping TypeName="SACEPModel.Clases_carreras">
+              <MappingFragment StoreEntitySet="Clases_carreras">
+                <ScalarProperty Name="codigo_clase" ColumnName="codigo_clase" />
+                <ScalarProperty Name="codigo_carrera" ColumnName="codigo_carrera" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clases_maestros">
+            <EntityTypeMapping TypeName="SACEPModel.Clases_maestros">
+              <MappingFragment StoreEntitySet="Clases_maestros">
+                <ScalarProperty Name="codigo_usuario" ColumnName="codigo_usuario" />
+                <ScalarProperty Name="codigo_clase" ColumnName="codigo_clase" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Solicitudes">
+            <EntityTypeMapping TypeName="SACEPModel.Solicitude">
+              <MappingFragment StoreEntitySet="Solicitudes">
+                <ScalarProperty Name="codigo_solicitud" ColumnName="codigo_solicitud" />
+                <ScalarProperty Name="codigo_usuario" ColumnName="codigo_usuario" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="cantidad_color" ColumnName="cantidad_color" />
+                <ScalarProperty Name="cantidad_ByN" ColumnName="cantidad_ByN" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="codigo_clase" ColumnName="codigo_clase" />
+                <ScalarProperty Name="codigo_maestro" ColumnName="codigo_maestro" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="SACEPModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="codigo_usuario" ColumnName="codigo_usuario" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="identidad" ColumnName="identidad" />
+                <ScalarProperty Name="nombre_usuario" ColumnName="nombre_usuario" />
+                <ScalarProperty Name="genero" ColumnName="genero" />
+                <ScalarProperty Name="correo_usuario" ColumnName="correo_usuario" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="rol" ColumnName="rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,1 @@
+codigo_carrera,nombre_carrera,cantidad_clases,cantidad_maestros
